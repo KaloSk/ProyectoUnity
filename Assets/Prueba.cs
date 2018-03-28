@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+public class Prueba : MonoBehaviour {
 
-public class TestHangman : MonoBehaviour {
+	public Camera camera;
+	public Text hola;
 
 	// Use this for initialization
 	void Start () {
@@ -11,6 +14,9 @@ public class TestHangman : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (Input.GetKey (KeyCode.UpArrow)) {
+			camera.transform.localPosition.z += 1;
+		}
+
 	}
 }
