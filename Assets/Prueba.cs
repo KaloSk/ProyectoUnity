@@ -15,7 +15,7 @@ public class Prueba : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey (KeyCode.UpArrow)) {
-			camera.transform.localPosition.z += 1;
+			
 		}
 
 	}
