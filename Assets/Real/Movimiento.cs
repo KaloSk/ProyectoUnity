@@ -19,8 +19,11 @@ public class Movimiento : MonoBehaviour {
     int mode = 0;
     Vector3 firstPosition;
 
-	// Use this for initialization
-	void Start () {		
+    public AudioClip backgroundMusic;
+    public AudioSource camSource;
+
+    // Use this for initialization
+    void Start () {		
 		//transform.position = new Vector3(1,0,0);
 		if(cam!=null){
 			camX = cam.transform.position.x;
@@ -30,6 +33,7 @@ public class Movimiento : MonoBehaviour {
 
         playerRB = GetComponent<Rigidbody>();
         firstPosition = transform.position;
+        camSource.PlayOneShot(backgroundMusic);
     }
 	
 	// Update is called once per frame
