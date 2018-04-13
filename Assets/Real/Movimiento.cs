@@ -74,7 +74,8 @@ public class Movimiento : MonoBehaviour {
                 else
                     GetComponent<Rigidbody>().MovePosition(transform.position + new Vector3(0, 0, speed * Time.deltaTime));
 				//transform.Rotate (new Vector3 (speed*15, 0, 0) * Time.deltaTime);
-			} else if (Input.GetKey (KeyCode.S) && transform.position.z > -limit.z) {
+               
+            } else if (Input.GetKey (KeyCode.S) && transform.position.z > -limit.z) {
                 if (mode == 1)
                     transform.position += new Vector3 (0, 0, -speed * Time.deltaTime);
                 else
@@ -87,7 +88,7 @@ public class Movimiento : MonoBehaviour {
                 else
                     GetComponent<Rigidbody>().MovePosition(transform.position + new Vector3(-speed * Time.deltaTime, 0, 0));
                 //transform.Rotate (new Vector3 (0, 0, speed*15) * Time.deltaTime);
-
+                //cam.Rotate(new Vector3(0, -speed * 15, 0) * Time.deltaTime);
             } 
 			if (Input.GetKey (KeyCode.D) && transform.position.x < limit.x) {
                 if(mode == 1)
@@ -95,7 +96,7 @@ public class Movimiento : MonoBehaviour {
                 else 
                     GetComponent<Rigidbody>().MovePosition(transform.position + new Vector3(speed * Time.deltaTime, 0, 0));
                 //transform.Rotate (new Vector3 (0, 0, -speed*15) * Time.deltaTime);
-
+                //cam.Rotate(new Vector3(0, speed * 15, 0) * Time.deltaTime);
             }
             if (Input.GetKeyDown(KeyCode.M)) {
                 mode = 1;
@@ -113,14 +114,14 @@ public class Movimiento : MonoBehaviour {
             //cam.position = new Vector3(x+camX,y+camY+closeCamY,z+camZ+closeCamZ);
         }
 
-		/*Timer delta*/
-		/*timer -= Time.deltaTime;
+        /*Timer delta*/
+        /*timer -= Time.deltaTime;
 		if (timer <= 0) {
 			//action
 		}*/
 
-		//transform.position = Vector3.MoveTowards (transform.position, limit, speed * Time.deltaTime);
-		/*if (transform.position.x == limit.x) {
+        //transform.position = Vector3.MoveTowards (transform.position, limit, speed * Time.deltaTime);
+        /*if (transform.position.x == limit.x) {
 			limit.x *= -1;
 		}
 
@@ -132,9 +133,12 @@ public class Movimiento : MonoBehaviour {
 			limit.z *= -1;
 		}*/
 
-		if(cam!=null) cam.position = new Vector3(transform.position.x+camX,transform.position.y+camY,transform.position.z+camZ);
-
-	}
+        if (cam != null)
+        {
+            cam.position = new Vector3(transform.position.x + camX, transform.position.y + camY, transform.position.z + camZ);
+        }
+        //cam.position = transform.position;
+    }
 
     public void RestartGame() {
         transform.position = firstPosition;

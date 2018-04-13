@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Jugador
+  - Luz
+  - Follower
   layers:
   - Default
   - TransparentFX
