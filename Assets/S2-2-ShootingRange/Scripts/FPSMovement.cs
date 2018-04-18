@@ -22,7 +22,7 @@ public class FPSMovement : MonoBehaviour {
 	void Update () {
 		transform.Rotate (Input.GetAxis ("Mouse X") * Vector3.up * Time.deltaTime * angleVelocity);
 		transform.Translate (Input.GetAxis("Horizontal") * Vector3.right * Time.deltaTime * speed);
-		transform.Translate (Input.GetAxis("Vertical") * Vector3.left * Time.deltaTime * speed);
+		transform.Translate (Input.GetAxis("Vertical") * Vector3.forward * Time.deltaTime * speed);
 
 
 
