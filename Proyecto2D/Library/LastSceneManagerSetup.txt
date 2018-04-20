@@ -1,1 +1,4 @@
-sceneSetups: []
+sceneSetups:
+- path: Assets/S2-3-Ejemplo2D/PrimerEjemplo.unity
+  isLoaded: 1
+  isActive: 1
