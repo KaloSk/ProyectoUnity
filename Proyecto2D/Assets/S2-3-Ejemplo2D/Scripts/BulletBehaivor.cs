@@ -10,7 +10,6 @@ public class BulletBehaivor : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         spriteRenderer = GetComponent<SpriteRenderer>();
-
     }
 	
 	// Update is called once per frame

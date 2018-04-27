@@ -8,13 +8,18 @@ public class BoxMovement : MonoBehaviour {
 	public float angularVelocity = 100;
 
     public GameObject bullet;
-
+    
     public List<Color> colors = new List<Color>();
 
     int colorIndex = 0;
 
     public SpriteRenderer spriteRenderer;
     public Transform sightDirection;
+    public Transform sightCursor;
+
+    //26-04-18
+
+    public LineRenderer visorLine;
 
 	class Axis{
 		string name;
@@ -37,6 +42,7 @@ public class BoxMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
         spriteRenderer.color = colors[colorIndex];
 		axisList.Add (new Axis ("Horizontal", KeyCode.A, KeyCode.D));
 		axisList.Add (new Axis ("Vertical", KeyCode.S, KeyCode.W));
@@ -45,6 +51,8 @@ public class BoxMovement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        Cursor.visible = false;
+
         transform.Translate(Vector3.right * GetAxis("Horizontal") * speed * Time.deltaTime, Space.World);
         transform.Translate(Vector3.up * GetAxis("Vertical") * speed * Time.deltaTime, Space.World);
 
@@ -54,6 +62,18 @@ public class BoxMovement : MonoBehaviour {
         mousePosition.z = transform.position.z;
 
         transform.up = (mousePosition - transform.position).normalized;
+
+
+
+        if (Vector3.Distance(mousePosition, transform.position) >= 1)
+        {
+            sightCursor.position = mousePosition;
+        }
+        else {
+            sightCursor.position = transform.position + sightDirection.up;
+        }
+
+        visorLine.SetPositions(new Vector3[] { transform.position, transform.position  + sightDirection.up * 3});
 
         //Debug.DrawLine(transform.position, mousePosition, Color.red);
 
@@ -108,7 +128,7 @@ public class BoxMovement : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.CompareTag ("Block")) {
-			Debug.Log ("xxx");
+			//Debug.Log ("xxx");
 		}
 	}
 
@@ -120,7 +140,10 @@ public class BoxMovement : MonoBehaviour {
 
        
     }
-    
+
+    public int ColorIndex { get { return colorIndex; } }
+
+
     /*void OnCollisionEnter2D(Collision2D other){
 		if (other.collider.CompareTag ("Block")) {
 			Debug.Log ("xxx");

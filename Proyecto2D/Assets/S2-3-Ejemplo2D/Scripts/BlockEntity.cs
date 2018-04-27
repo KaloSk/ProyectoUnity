@@ -39,7 +39,6 @@ public class BlockEntity : MonoBehaviour {
             xx-=1;
             if (xx <= 0) turn = true;
         }
-
-        Debug.Log(xx);
+        
     }
 }
