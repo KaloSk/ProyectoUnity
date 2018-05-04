@@ -17,6 +17,8 @@ public class BoxMovement : MonoBehaviour {
     public Transform sightDirection;
     public Transform sightCursor;
 
+
+    public Vector3 mousePosition;
     //26-04-18
 
     public LineRenderer visorLine;
@@ -58,7 +60,7 @@ public class BoxMovement : MonoBehaviour {
 
         //transform.Rotate(Vector3.forward * GetAxis("Arrow_H") * angularVelocity * Time.deltaTime);
 
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = transform.position.z;
 
         transform.up = (mousePosition - transform.position).normalized;
@@ -138,10 +140,14 @@ public class BoxMovement : MonoBehaviour {
         temp.color = spriteRenderer.color;
         Destroy(temp.gameObject, 2);
 
-       
+        CamMovement cam = Camera.main.GetComponent<CamMovement>();
+        cam.speed = 25;
+        cam.impulseDirection = sightDirection.up;
     }
 
     public int ColorIndex { get { return colorIndex; } }
+
+    
 
 
     /*void OnCollisionEnter2D(Collision2D other){

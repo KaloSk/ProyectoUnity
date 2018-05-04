@@ -150,10 +150,10 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 2.27, y: 2.88}
+    newSize: {x: 0.5, y: 0.57}
     adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
@@ -204,6 +204,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 8093887}
   sightDirection: {fileID: 583309505}
   sightCursor: {fileID: 1994989348}
+  mousePosition: {x: 0, y: 0, z: 0}
   visorLine: {fileID: 583309507}
 --- !u!212 &8093887
 SpriteRenderer:
@@ -240,12 +241,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 75e92eae183c25546932dea6268066c2, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 4579b1690296c1c4898014059bee761b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_DrawMode: 1
+  m_Size: {x: 0.5, y: 0.57}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -259,7 +260,7 @@ Transform:
   m_GameObject: {fileID: 8093883}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.84, y: -0.18, z: 0}
-  m_LocalScale: {x: 2.672101, y: 2.4108355, z: 1.9928102}
+  m_LocalScale: {x: 6.065669, y: 6.9432063, z: 1.9928102}
   m_Children:
   - {fileID: 1994989348}
   - {fileID: 583309505}
@@ -429,7 +430,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 26.6, y: 26.3}
+  m_AnchoredPosition: {x: 33.19, y: 36.2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &383212516
@@ -775,7 +776,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 74d63559818bd2c40b50da5d669c5b08, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1386,6 +1387,7 @@ GameObject:
   - component: {fileID: 1179583710}
   - component: {fileID: 1179583709}
   - component: {fileID: 1179583708}
+  - component: {fileID: 1179583712}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1427,7 +1429,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1456,6 +1458,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1179583712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1179583707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad923fb80b5f97d438e104f5833e3161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 8093888}
+  targetColor: {r: 0.53676474, g: 0.26838237, b: 0.39609534, a: 0}
+  distance: 2
+  maxDistanceDelta: 10
+  speed: 0
+  impulseDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &1994989347
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,7 +1498,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1994989347}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.1855462, y: 0.07466291, z: 0}
+  m_LocalPosition: {x: 0.02, y: 0.99, z: 0}
   m_LocalScale: {x: 0.37423733, y: 0.41479394, z: 0.50180393}
   m_Children: []
   m_Father: {fileID: 8093888}
@@ -1519,8 +1538,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c20b92bac146ae04799fbf5241fc4606, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 1, g: 0.99918866, b: 0.99264705, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1562,7 +1581,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -54,6 +54,7 @@
      <Compile Include="Assets\S2-3-Ejemplo2D\Scripts\BlockEntity.cs" />
      <Compile Include="Assets\S2-3-Ejemplo2D\Scripts\BoxMovement.cs" />
      <Compile Include="Assets\S2-3-Ejemplo2D\Scripts\BulletBehaivor.cs" />
+     <Compile Include="Assets\S2-3-Ejemplo2D\Scripts\CamMovement.cs" />
      <Compile Include="Assets\S2-3-Ejemplo2D\Scripts\PlayerHUD.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

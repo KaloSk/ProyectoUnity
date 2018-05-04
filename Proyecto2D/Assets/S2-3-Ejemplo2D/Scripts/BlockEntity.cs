@@ -26,7 +26,7 @@ public class BlockEntity : MonoBehaviour {
 
     public void Update()
     {
-        if (xx < move && turn)
+        /*if (xx < move && turn)
         {
             transform.position += (Vector3.left * Time.deltaTime * speed);
             xx+=1;
@@ -38,7 +38,7 @@ public class BlockEntity : MonoBehaviour {
             transform.position += (Vector3.right * Time.deltaTime * speed);
             xx-=1;
             if (xx <= 0) turn = true;
-        }
+        }*/
         
     }
 }
