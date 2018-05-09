@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/S2-3-Ejemplo2D/PrimerEjemplo.unity
+- path: Assets/S2-3-Ejemplo2D/TileMap.unity
   isLoaded: 1
   isActive: 1

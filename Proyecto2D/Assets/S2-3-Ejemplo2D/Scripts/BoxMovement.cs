@@ -23,6 +23,10 @@ public class BoxMovement : MonoBehaviour {
 
     public LineRenderer visorLine;
 
+    //08-05-18//
+    public Rigidbody2D rigidBody2D;
+    Vector3 velocity;
+
 	class Axis{
 		string name;
 		KeyCode negative;
@@ -52,21 +56,21 @@ public class BoxMovement : MonoBehaviour {
 	}
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
         Cursor.visible = false;
-
-        transform.Translate(Vector3.right * GetAxis("Horizontal") * speed * Time.deltaTime, Space.World);
-        transform.Translate(Vector3.up * GetAxis("Vertical") * speed * Time.deltaTime, Space.World);
-
+        velocity = Vector3.zero;
+        velocity.x = GetAxis("Horizontal") * speed;
+        velocity.y = GetAxis("Vertical") * speed;
+        
+        //transform.Translate(Vector3.right * GetAxis("Horizontal") * speed * Time.deltaTime, Space.World);
+        //transform.Translate(Vector3.up * GetAxis("Vertical") * speed * Time.deltaTime, Space.World);
         //transform.Rotate(Vector3.forward * GetAxis("Arrow_H") * angularVelocity * Time.deltaTime);
 
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = transform.position.z;
-
         transform.up = (mousePosition - transform.position).normalized;
-
-
-
+        
         if (Vector3.Distance(mousePosition, transform.position) >= 1)
         {
             sightCursor.position = mousePosition;
@@ -147,7 +151,7 @@ public class BoxMovement : MonoBehaviour {
 
     public int ColorIndex { get { return colorIndex; } }
 
-    
+
 
 
     /*void OnCollisionEnter2D(Collision2D other){
@@ -155,5 +159,20 @@ public class BoxMovement : MonoBehaviour {
 			Debug.Log ("xxx");
 		}
 	}*/
+
+    GameObject currentWall;
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        /*if (collision.gameObject.CompareTag("Wall"))
+        {
+            currentWall = collision.gameObject;
+        }*/
+    }
+
+    void LateUpdate()
+    {
+        rigidBody2D.velocity = velocity;
+    }
 
 }
